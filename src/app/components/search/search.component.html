@@ -1,31 +1,33 @@
-<h2>Need Music?</h2>
+<div class="container search-container">
+  <h1>Need Music?</h1>
 
-<p class="lead">Use the Radiofy app to browse new releases and your favorite songs</p>
+  <p>Browse new releases and your favorite songs</p>
 
-<form>
-  <div class="form-group">
-    <input 
-      class="form-control" 
-      type="text" 
-      name="searchStr"
-      (keyup)="searchMusic()" 
-      [(ngModel)]="searchStr" 
-      placeholder="Search Music..."
-      autocomplete="off">
-  </div>
-</form>
+  <form>
+    <div class="form-group">
+      <input 
+        class="form-control" 
+        type="text" 
+        name="searchStr"
+        (keyup)="searchMusic()" 
+        [(ngModel)]="searchStr" 
+        placeholder="Enter Artist..."
+        autocomplete="off">
+    </div>
+  </form>
 
-<div *ngIf="searchRes">
-  <div *ngFor="let res of searchRes">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="search-res well">
-          <h5><a routerLink="/artist/{{res.id}}">{{res.name}}</a></h5>
-          <div>
-            <strong>Genres: </strong>
-            <span *ngFor="let genre of res.genres">
-              {{genre}}
-            </span>
+  <div *ngIf="searchRes">
+    <div *ngFor="let res of searchRes">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="search-res well">
+            <h5><a routerLink="/artist/{{res.id}}">{{res.name}}</a></h5>
+            <div>
+              <strong>Genres: </strong>
+              <span *ngFor="let genre of res.genres">
+                {{genre}}
+              </span>
+            </div>
           </div>
         </div>
       </div>
