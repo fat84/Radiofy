@@ -1,1 +1,15 @@
-<h1>Search</h1>
+<h2>Need Music?</h2>
+
+<p class="lead">Use the Radiofy app to browse new releases and your favorite songs</p>
+
+<form>
+  <div class="form-group">
+    <input 
+      class="form-control" 
+      type="text" 
+      name="searchStr"
+      (keyup)="searchMusic()" 
+      [(ngModel)]="searchStr" 
+      placeholder="Search Music...">
+  </div>
+</form>
