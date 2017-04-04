@@ -3,6 +3,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
 import { HttpModule } from '@angular/http';
+import { SpotyfyService } from './services/spotify.service';
 
 @Component({
   moduleId: module.id,
@@ -14,7 +15,7 @@ import { HttpModule } from '@angular/http';
     AboutComponent, 
     SearchComponent
   ],
-  providers: [HttpModule]
+  providers: [HttpModule, SpotyfyService]
 })
 
 export class AppComponent { }

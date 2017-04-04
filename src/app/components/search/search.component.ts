@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { SpotyfyService } from '../../services/spotify.service';
+import { Artist } from '../../../Artist';
+import { Routes, RouterModule } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -11,15 +13,20 @@ import { SpotyfyService } from '../../services/spotify.service';
 
 export class SearchComponent { 
   searchStr: string;
+  searchRes: Artist[];
 
   constructor(private _spotifyService:SpotyfyService){
 
   }
 
   searchMusic() {
-    this._spotifyService.searchMusic(this.searchStr)
+    if(this.searchStr === ""){
+      this.searchRes = [];
+    }else{
+      this._spotifyService.searchMusic(this.searchStr)
       .subscribe(res => {
-        console.log(res.artists.items)
+        this.searchRes = (res.artists.items)
       })
+    }
   }
 }
